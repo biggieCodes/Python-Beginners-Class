@@ -134,34 +134,8 @@ while expression:
 #     print(f"the current number is {count}")
 #     if count == 0:
 #         life = False
-#         print("Game Over")
-        
-#For loop is used to iterate over a sequence that is either a list, tuple, dictionary, set or string.
-#its easier to use cus it helps us to have shorter lines of code
-"""
-for var in iterable:
-    statements
-"""
-for loop in  list
- 
-foods = ["rice", "eggs", "beans", "spaghetti"] 
-for food in foods:
-print(food)
-if food == "eggs": 
-if i == foods[2]:
-break
 
-# numbers = [0,1,2,3,4,5]
-# for number in numbers:
-#     print(number)
 
-# FOR LOOP IN A STRING
-# numbers = "1234567890"
-# for number in numbers:
-#     print(number)
-
-# name = "VICTOR"
-# for i in name:
 #     print(i)
 
 # foods = ["rice", "eggs", "beans", "spaghetti"] 
