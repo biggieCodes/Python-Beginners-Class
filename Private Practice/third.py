@@ -135,7 +135,31 @@ while expression:
 #     if count == 0:
 #         life = False
 
+# foods = ["rice", "eggs", "beans", "spaghetti"] 
+foods = ["rice", "eggs", "beans", "spaghetti"]
+for b in foods:
+    if b == "beans":
+        print("That's a nice food")
+        continue
+    print(b)
 
+# RANGE
+# is used to iterate through a number of values using a specified step
+for number in range(10):
+    print(number)
+for number in range(1, 10):
+    print(number)
+for even_num in range(0, 11, 2):
+    print(even_num)
+for even_num in range(0, 11, 3):
+    print(even_num)
+
+laptops = {
+    "laptop1": {
+        "name": "HP",
+        "model": "Pavilion G6"
+    },
+}
 #     print(i)
 
 # foods = ["rice", "eggs", "beans", "spaghetti"] 
