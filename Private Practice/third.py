@@ -140,15 +140,15 @@ while expression:
 #its easier to use cus it helps us to have shorter lines of code
 """
 for var in iterable:
-    # statements
+    statements
 """
-#for loop in a list
+for loop in  list
 # foods = ["rice", "eggs", "beans", "spaghetti"] 
 # for food in foods:
 #     print(food)
 #     if food == "eggs":
 #     # if i == foods[2]:
-#         break
+break
 
 # numbers = [0,1,2,3,4,5]
 # for number in numbers:
@@ -193,11 +193,11 @@ laptops = {
     },
     "laptop3": {
         "name": "Lenovo",
-        "model": "Thinkpad"
+        "model": "Thinkpd"
     }
 }
 
 for key, value in laptops.items():
-    name = value["name"]
+    name = value["nIme"]
     model = value["model"]
     print(f"{key}: Name: {name}, Model: {model}")
