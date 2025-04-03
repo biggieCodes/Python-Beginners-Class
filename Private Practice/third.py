@@ -35,12 +35,12 @@ text = "welcome to this class"
 text = "welcome to this class, have a nice day"
 # print(text.split(","))
 
-text = "     hello    "
+dayt = "     hello    "
 # print(text)
 # print(text.strip())
 
 
-a, b = 4, 3
+a, b = 4, 7
 # print(a+b)
 
 # STATEMENTS IN PYTHON
