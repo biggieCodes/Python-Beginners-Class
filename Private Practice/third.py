@@ -18,7 +18,7 @@ text = "hEllO WoRlD"
 # """Hello! 
 # How are you doing today?""")
 greetings = """Hello! 
-how are you doing this evening?"""
+how are you doing this afternon?"""
 # print(greetings)
 text = "hello world"
 # print(text.islower())
