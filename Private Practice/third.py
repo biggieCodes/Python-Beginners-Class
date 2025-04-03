@@ -143,11 +143,11 @@ for var in iterable:
     statements
 """
 for loop in  list
-# foods = ["rice", "eggs", "beans", "spaghetti"] 
-# for food in foods:
-#     print(food)
-#     if food == "eggs":
-#     # if i == foods[2]:
+foods = ["rice", "eggs", "beans", "spaghetti"] 
+for food in foods:
+print(food)
+if food == "eggs": 
+if i == foods[2]:
 break
 
 # numbers = [0,1,2,3,4,5]
