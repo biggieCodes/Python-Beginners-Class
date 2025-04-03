@@ -143,6 +143,7 @@ for var in iterable:
     statements
 """
 for loop in  list
+ 
 foods = ["rice", "eggs", "beans", "spaghetti"] 
 for food in foods:
 print(food)
