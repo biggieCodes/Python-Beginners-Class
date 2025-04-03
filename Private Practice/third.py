@@ -6,7 +6,7 @@
 
 # STRING METHODS
 
-text = "hEllO WoRlD"
+text = "hEllO WoRLD"
 # print(text.upper())
 # print(text.lower())
 # print(text.title())
@@ -18,7 +18,7 @@ text = "hEllO WoRlD"
 # """Hello! 
 # How are you doing today?""")
 greetings = """Hello! 
-how are you doing this afternon?"""
+how are you doing this after?"""
 # print(greetings)
 text = "hello world"
 # print(text.islower())
