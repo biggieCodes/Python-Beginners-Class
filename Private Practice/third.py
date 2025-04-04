@@ -158,8 +158,9 @@ laptops = {
     "laptop1": {
         "name": "HP",
         "model": "Pavilion G6"
-    },
-}# foods = ["rice", "eggs", "beans", "spaghetti"] 
+}
+    }    ,
+# foods = ["rice", "eggs", "beans", "spaghetti"] 
 foods = ["rice", "eggs", "beans", "spaghetti"]
 for b in foods:
     if b == "beans":
