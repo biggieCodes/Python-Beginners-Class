@@ -1,4 +1,4 @@
-Mathematics = float(input("Enter your mathematics score:40")
+Mathematics = float(input("Enter your mathematics score: ")
 English = float(input("Enter your English score: "))
 Chemistry = float(input("Enter your Chemistry score: "))
 physics = float(input("Enter your Physics score: "))
