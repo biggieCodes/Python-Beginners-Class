@@ -6,7 +6,7 @@
 
 # STRING METHODS
 
-text = "hEllO WoRLD"
+text = "hEllO WoD"
 # print(text.upper())
 # print(text.lower())
 # print(text.title())
