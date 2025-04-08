@@ -1,13 +1,13 @@
 # type
 
-s = 3
+x = 3
 y = 5.0
 z = 3e2
 
 type_x = type(type_x)
 print(type_x)
 
-print(type(s + y / z))
+print(type(x + y / z))
 
 # #Example of a list with a map function
 # my_map_list = list(map(lambda x: x * 2, range(1, 6)))
