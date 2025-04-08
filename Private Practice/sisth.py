@@ -49,6 +49,44 @@ print(my_tuple_list) #Output: [(1, 2), (3, 4), (5, 6)]
 my_dict_list = [{"name": "Alice"}, {"name": "Bob"}, {"name": "Charlie"}]
 print(my_dict_list) #Output: [{"name": "Alice"}, {"name": "Bob"}, {"name": "Charlie"}]
 
+#Example of a list with a set
+my_set_list = [{1, 2}, {3, 4}, {5, 6}]
+print(my_set_list) #Output: [{1, 2}, {3, 4}, {5, 6}]
+
+#Example of a list with a boolean
+my_bool_list = [True, False, True]
+print(my_bool_list) #Output: [True, False, True]
+
+#Example of a list with a float
+my_float_list = [1.0, 2.0, 3.0]
+print(my_float_list) #Output: [1.0, 2.0, 3.0]
+
+#Example of a list with a complex number
+my_complex_list = [1 + 2j, 3 + 4j, 5 + 6j]
+print(my_complex_list) #Output: [(1+2j), (3+4j), (5+6j)]
+
+
+#Example of a list with a range
+my_range_list = list(range(1, 6))
+print(my_range_list) #Output: [1, 2, 3, 4, 5]
+
+#Example of a list with a list comprehension
+my_comp_list = [x for x in range(1, 6)]
+print(my_comp_list) #Output: [1, 2, 3, 4, 5]
+
+#Example of a list with a generator expression
+my_gen_list = list(x for x in range(1, 6))
+print(my_gen_list) #Output: [1, 2, 3, 4, 5]
+
+#Example of a list with a lambda function
+my_lambda_list = list(map(lambda x: x * 2, range(1, 6)))
+print(my_lambda_list) #Output: [2, 4, 6, 8, 10]
+
+#Example of a list with a filter function
+my_filter_list = list(filter(lambda x: x % 2 == 0, range(1, 11)))
+print(my_filter_list) #Output: [2, 4, 6, 8, 10]
+
+
 
 
 
