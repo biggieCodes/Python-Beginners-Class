@@ -26,3 +26,9 @@ else:
     else:
         # Add an indented block here
         pass
+
+    if operator == '-':
+        result: float = num1 - num2
+
+    if operator == '*':
+        result: float = num1 * num2    
