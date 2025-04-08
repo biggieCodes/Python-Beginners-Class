@@ -36,7 +36,8 @@ else:
         result: float = num1 / num2
     else:
         print("Invalid operator") 
-        print("Result:", result)
+#     print("Invalid input")
+    print("Result:", result)
 # else:
 
 
