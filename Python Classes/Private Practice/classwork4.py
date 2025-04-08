@@ -20,3 +20,9 @@ if a.replace('.', '', 1).isdigit() and b.replace('.', '', 1).isdigit():
         print("Invalid operator")
 else:
     print("Invalid input")
+
+    if operator == '+':
+        result: float = num1 + num2
+    else:
+        # Add an indented block here
+        pass
