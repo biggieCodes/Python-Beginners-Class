@@ -32,7 +32,7 @@ print(my_map_list) #Output: [2, 4, 6, 8, 10]
 #
 
 
-# #Example of a list with a filter function
+#Example of a list with a filter function
 my_filter_list = list(filter(lambda x: x % 2 == 0, range(1, 11)))
 print(my_filter_list) #Output: [2, 4, 6, 8, 10]
 
