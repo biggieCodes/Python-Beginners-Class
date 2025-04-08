@@ -21,14 +21,24 @@ if a.replace('.', '', 1).isdigit() and b.replace('.', '', 1).isdigit():
 else:
     print("Invalid input")
 
+    
+    
+    
+    #if and else and elif statements
+     
     if operator == '+':
         result: float = num1 + num2
-    else:
-        # Add an indented block here
-        pass
-
-    if operator == '-':
+    elif operator == "-":
         result: float = num1 - num2
+    elif operator == '*':
+        result: float = num1 * num2
+    elif operator == '/':
+        result: float = num1 / num2
+    else:
+        print("Invalid operator") 
+        print("Result:", result)
+# else:
 
-    if operator == '*':
-        result: float = num1 * num2    
+
+
+     
