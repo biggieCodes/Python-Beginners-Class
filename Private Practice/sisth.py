@@ -26,6 +26,30 @@ my_list = [1, 2, 3, 4, 5]
 print(my_list) #Output: [1, 2, 3, 4, 5]
 
 #Example of a nested list
+my_nested_list = [1, 2, [3, 4], 5]
+print(my_nested_list) #Output: [1, 2, [3, 4], 5]
+
+#Example of an empty list       
+my_empty_list = []
+print(my_empty_list) #Output: []
+
+#Example of a list with different data types
+my_mixed_list = [1, "two", 3.0, True]
+print(my_mixed_list) #Output: [1, "two", 3.0, True]
+
+#Example of a list with a string
+my_string_list = ["apple", "banana", "cherry"]
+print(my_string_list) #Output: ["apple", "banana", "cherry"]
+
+#Example of a list with a tuple
+my_tuple_list = [(1, 2), (3, 4), (5, 6)]
+print(my_tuple_list) #Output: [(1, 2), (3, 4), (5, 6)]
+
+#Example of a list with a dictionary
+my_dict_list = [{"name": "Alice"}, {"name": "Bob"}, {"name": "Charlie"}]
+print(my_dict_list) #Output: [{"name": "Alice"}, {"name": "Bob"}, {"name": "Charlie"}]
+
+
 
 
 
