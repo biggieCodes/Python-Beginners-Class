@@ -37,8 +37,11 @@ else:
     else:
         print("Invalid operator") 
 #     print("Invalid input")
-    print("Result:", result)
-# else:
+
+if result == None:
+    print("No result for you you fool.")
+else:    
+    print("result =", result)
 
 
 
