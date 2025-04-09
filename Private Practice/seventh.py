@@ -17,4 +17,7 @@ my_lambda_list = list(map(lambda x: x * 2, range(1, 6)))
 print(my_lambda_list) #Output: [2, 4, 6, 8, 10]
 
 #example of a list with a filter function
+my_filter_list = list(filter(lambda x: x % 2 == 0, range(1, 11)))
+print(my_filter_list) #Output: [2, 4, 6, 8, 10]
+#
 
