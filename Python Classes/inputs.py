@@ -48,3 +48,11 @@ print("if Tomiwas is", tomiwa_age, "then you are", your_age, "years old")
 # The input() function can also take a dictionary as an argument.
 # The dictionary is displayed to the user before taking input.
 # The input() function can also take a string as an argument.
+# The string is displayed to the user before taking input.
+# The input() function can also take a boolean as an argument.
+# The boolean is displayed to the user before taking input.
+# The input() function can also take a float as an argument.
+# The float is displayed to the user before taking input.
+# The input() function can also take a complex number as an argument.
+# The complex number is displayed to the user before taking input.
+# The input() function can also take a range as an argument.
