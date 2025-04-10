@@ -1,7 +1,9 @@
 # This code creates a simple Cyber Threat Intelligence Dashboard using Tkinter.
 
 import tkinter as tk
-from tkinter import ttk
+from tkinter import ttk, messagebox
+
+
 
 # Create main window
 root = tk.Tk()
@@ -18,6 +20,10 @@ title.pack(pady=10)
 top_frame = tk.Frame(root, bg="#1e1e1e")
 top_frame.pack(fill=tk.X, padx=20)
 
+
+clear_btn = tk.Button(top_frame, text="Clear Logs", bg="#333", fg="white")
+clear_btn.pack(side=tk.RIGHT, padx=5)
+
 # Filter dropdown
 filter_label = tk.Label(top_frame, text="Filter by Severity:", fg="white", bg="#1e1e1e")
 filter_label.pack(side=tk.LEFT, padx=5)
@@ -30,44 +36,8 @@ filter_menu = ttk.Combobox(top_frame, textvariable=severity_var, values=severity
 filter_menu.pack(side=tk.LEFT, padx=5)
 
 # Export button
-export_btn = tk.Button(top_frame, text="Export Logs", bg="#333", fg="white", command=export_logs)
+export_btn = tk.Button(top_frame, text="Export Logs", bg="#333", fg="white")
 export_btn.pack(side=tk.RIGHT, padx=5)
-
-clear_btn = tk.Button(top_frame, text="Clear Logs", bg="#333", fg="white", command=clear_logs)
-clear_btn.pack(side=tk.RIGHT, padx=5)
-
-import csv
-from tkinter import filedialog, messagebox
-
-# ====================
-# Export Logs Function
-# ====================
-def export_logs():
-    if not tree.get_children():
-        messagebox.showinfo("Export", "No logs to export.")
-        return
-
-    file_path = filedialog.asksaveasfilename(defaultextension=".csv",
-                                             filetypes=[("CSV files", "*.csv")],
-                                             title="Save threat logs as CSV")
-
-    if file_path:
-        with open(file_path, mode="w", newline="") as file:
-            writer = csv.writer(file)
-            writer.writerow(["Timestamp", "Threat Type", "Source IP", "Severity"])
-            for child in tree.get_children():
-                writer.writerow(tree.item(child)["values"])
-        messagebox.showinfo("Export", f"Logs successfully saved to:\n{file_path}")
-
-# ====================
-# Clear Logs Function
-# ====================
-def clear_logs():
-    confirm = messagebox.askyesno("Clear Logs", "Are you sure you want to clear all logs?")
-    if confirm:
-        for item in tree.get_children():
-            tree.delete(item)
-        status_label.config(text="🟢 Logs cleared. System ready.")
 
 # Threat logs table
 log_frame = tk.Frame(root)
@@ -135,9 +105,9 @@ def insert_threat_log():
 thread = threading.Thread(target=insert_threat_log, daemon=True)
 thread.start()
 
+
 # Run the app
 root.mainloop()
-
 
 
 
