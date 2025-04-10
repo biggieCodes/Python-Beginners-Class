@@ -24,7 +24,7 @@ A Python-based dashboard designed to monitor, analyze, and visualize cyber threa
 | Phase | Feature | Status |
 |-------|---------|--------|
 | 1     | Load and display sample threat data | ✅ In Progress |
-| 2     | Filtering by date, severity, type | 🔜 |
+| 2     | Filtering by date, severity, type | ✅ In Progress  |
 | 3     | Visual analytics (charts, graphs) | 🔜 |
 | 4     | Integration with real threat data sources | ⏳ |
 | 5     | Custom alerts & notifications | ⏳ |
