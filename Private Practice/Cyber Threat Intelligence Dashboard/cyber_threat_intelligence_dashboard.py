@@ -3,6 +3,7 @@
 import tkinter as tk
 from tkinter import ttk, messagebox
 import csv
+import os
 from datetime import datetime
 from tkinter import messagebox, filedialog
 
@@ -20,6 +21,9 @@ title = tk.Label(root, text="🛡 Cyber Threat Intelligence Dashboard",
                  font=("Helvetica", 18, "bold"), fg="#00ffcc", bg="#1e1e1e")
 title.pack(pady=10)
 
+def play_sound():
+    # For macOS: Play the "Glass" system sound (you can change it to any sound file you like)
+    os.system("afplay /System/Library/Sounds/Glass.aiff")
 
 # === Export Logs to CSV ===
 def export_logs():
@@ -125,6 +129,8 @@ def show_severity_chart():
 
     plt.tight_layout()
     plt.show()
+
+
 # Button to show severity chart
 chart_btn = tk.Button(top_frame, text="Show Severity Chart", bg="#333", fg="white", command=show_severity_chart)
 chart_btn.pack(side=tk.RIGHT, padx=5)
