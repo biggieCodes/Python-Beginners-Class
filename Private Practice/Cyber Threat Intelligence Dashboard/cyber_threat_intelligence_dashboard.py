@@ -4,8 +4,11 @@ import tkinter as tk
 from tkinter import ttk, messagebox
 import csv
 import os
+import requests
 from datetime import datetime
 from tkinter import messagebox, filedialog
+import matplotlib.pyplot as plt
+from collections import Counter
 
 
 
@@ -21,9 +24,84 @@ title = tk.Label(root, text="🛡 Cyber Threat Intelligence Dashboard",
                  font=("Helvetica", 18, "bold"), fg="#00ffcc", bg="#1e1e1e")
 title.pack(pady=10)
 
-def play_sound():
-    # For macOS: Play the "Glass" system sound (you can change it to any sound file you like)
-    os.system("afplay /System/Library/Sounds/Glass.aiff")
+
+import tkinter as tk
+
+# Function to fetch threat data
+def fetch_threat_data():
+    print("Fetching threat data...")
+
+# Create main window
+root = tk.Tk()
+root.title("Cyber Threat Intelligence Dashboard")
+
+# Create top frame
+top_frame = tk.Frame(root)
+top_frame.pack(pady=10)
+
+# Create button
+api_btn = tk.Button(top_frame, text="Fetch Threat Data", bg="#333", fg="white", command=fetch_threat_data)
+api_btn.pack()
+
+def load_logs_from_file():
+    file_path = filedialog.askopenfilename(
+        filetypes=[("CSV files", "*.csv")],
+        title="Select Threat Log CSV"
+    )
+    messagebox.showerror("Load Error", f"Failed to load logs:\n{e}")
+    load_btn = tk.Button(top_frame, text="Load Logs", bg="#333", fg="white", command=load_logs_from_file)
+    load_btn.pack(side=tk.RIGHT, padx=8)
+
+def clear_logs():
+    confirm = messagebox.askyesno("Clear Logs", "Are you sure you want to clear all logs?")
+    if confirm:
+        for item in tree.get_children():
+            tree.delete(item)
+        status_label.config(text="🟢 Logs cleared. System ready.")
+        messagebox.showinfo("Clear Logs", "All logs have been cleared.")
+
+
+def export_logs():
+    print("Exporting logs...")
+
+root = tk.Tk()
+root.title("Log Exporter")
+
+frame = tk.Frame(root)
+frame.pack(pady=10)
+
+#export_button = tk.Button(frame, text="Export Logs", command=export_logs)
+#export_button.pack()
+
+root.mainloop()
+
+export_btn = tk.Button(top_frame, text="Export Logs", bg="#333", fg="white", command=export_logs)
+export_btn.pack(side=tk.RIGHT, padx=10, pady=5)
+
+clear_btn = tk.Button(top_frame, text="Clear Logs", bg="#333", fg="white", command=clear_logs)
+clear_btn.pack(side=tk.RIGHT, padx=10, pady=5)
+
+chart_btn = tk.Button(top_frame, text="Show Severity Chart", bg="#333", fg="white", command=show_severity_chart)
+chart_btn.pack(side=tk.RIGHT, padx=10, pady=5)
+
+export_btn = tk.Button(top_frame, text="Export Logs", bg="#333", fg="white", command=export_logs)
+export_btn.pack(side=tk.RIGHT, padx=10, pady=5)
+
+clear_btn = tk.Button(top_frame, text="Clear Logs", bg="#333", fg="white", command=clear_logs)
+clear_btn.pack(side=tk.RIGHT, padx=10, pady=5)
+
+chart_btn = tk.Button(top_frame, text="Show Severity Chart", bg="#333", fg="white", command=show_severity_chart)
+chart_btn.pack(side=tk.RIGHT, padx=10, pady=5)
+# For macOS: Play the "Glass" system sound (you can change it to any sound file you like)
+
+root = tk.Tk()
+top_frame = tk.Frame(root)
+top_frame.pack()
+
+api_btn = tk.Button(top_frame, text="Fetch Threat Data", bg="#333", fg="white", command=fetch_threat_data)
+api_btn.pack()
+
+os.system("afplay /System/Library/Sounds/Glass.aiff")
 
 # === Export Logs to CSV ===
 def export_logs():
