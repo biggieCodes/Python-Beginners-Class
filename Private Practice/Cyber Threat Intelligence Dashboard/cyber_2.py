@@ -1,8 +1,11 @@
+
+
 import tkinter as tk
 from tkinter import ttk, messagebox, filedialog
 import csv
 import os
 import random
+import time  # ✅ Missing import
 from datetime import datetime
 import matplotlib.pyplot as plt
 from collections import Counter
@@ -11,7 +14,7 @@ import threading
 # Create main window
 root = tk.Tk()
 root.title("Cyber Threat Intelligence Dashboard")
-root.geometry("800x600")  # Increased window size for better display
+root.geometry("800x600")
 root.config(bg="#1e1e1e")
 
 title = tk.Label(root, text="🛡 Cyber Threat Intelligence Dashboard",
@@ -60,7 +63,8 @@ def load_logs_from_file():
         with open(file_path, mode="r") as file:
             reader = csv.DictReader(file)
             for row in reader:
-                log = (row["Timestamp"], row["Threat Type"], row["Source IP"], row[" Severity"])
+                # Fixed key from " Severity" to "Severity" (remove extra space)
+                log = (row["Timestamp"], row["Threat Type"], row["Source IP"], row["Severity"])
                 tree.insert("", "end", values=log)
         status_label.config(text="✅ Logs loaded from file.")
     except Exception as e:
@@ -70,14 +74,13 @@ def apply_filter():
     selected_filter = severity_var.get()
     if selected_filter == "All":
         for item in tree.get_children():
-            tree.see(item)  # Show all items
+            tree.reattach(item, '', 'end')  # show item again
     else:
-        items = tree.get_children()
-        for item in items:
+        for item in tree.get_children():
             if tree.item(item)['values'][3] == selected_filter:
-                tree.see(item)
+                tree.reattach(item, '', 'end')
             else:
-                tree.hide(item)
+                tree.detach(item)  # hide item
 
 def show_severity_chart():
     severities = []
@@ -127,7 +130,7 @@ load_btn.pack(side=tk.RIGHT, padx=5)
 # Filter
 severity_options = ["All", "Low", "Medium", "High", "Critical"]
 severity_var = tk.StringVar()
-severity_var.set("All")  # default value
+severity_var.set("All")
 filter_menu = ttk.Combobox(top_frame, textvariable=severity_var, values=severity_options, state="readonly")
 filter_menu.pack(side=tk.LEFT, padx=(0, 10))
 filter_btn = tk.Button(top_frame, text="Apply Filter", bg="#333", fg="white", command=apply_filter)
@@ -176,8 +179,8 @@ def insert_threat_log():
         selected_filter = severity_var.get()
         if selected_filter == "All" or log[3] == selected_filter:
             root.after(0, lambda log=log: tree.insert("", "end", values=log))
-            root.after(0, lambda: status_label.config(text=f"⚠️ {log[3]} Threat Detected!"))
-        time.sleep(random.randint(2,5))
+            root.after(0, lambda log=log: status_label.config(text=f"⚠️ {log[3]} Threat Detected!"))
+        time.sleep(random.randint(2, 5))
 
 thread = threading.Thread(target=insert_threat_log, daemon=True)
 thread.start()
