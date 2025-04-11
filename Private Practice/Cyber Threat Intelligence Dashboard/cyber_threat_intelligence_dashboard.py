@@ -3,6 +3,7 @@
 import tkinter as tk
 from tkinter import ttk, messagebox
 import csv
+from datetime import datetime
 from tkinter import messagebox, filedialog
 
 
@@ -52,15 +53,83 @@ def clear_logs():
         status_label.config(text="🟢 Logs cleared. System ready.")
         messagebox.showinfo("Clear Logs", "All logs have been cleared.")
 
+    def load_logs_from_file():
+        file_path = filedialog.askopenfilename(
+            filetypes=[("CSV files", "*.csv")],
+            title="Select Threat Log CSV"
+        )
+        if not file_path:
+            return
+
+    try:
+        with open(file_path, mode="r") as file:
+            reader = csv.DictReader(file)
+            for row in reader:
+                if "Timestamp" in row and "Threat Type" in row and "Source IP" in row and "Severity" in row:
+                    log = (row["Timestamp"], row["Threat Type"], row["Source IP"], row["Severity"])
+                    tree.insert("", "end", values=log)
+
+        status_label.config(text="✅ Logs loaded from file.")
+    except Exception as e:
+        messagebox.showerror("Load Error", f"Failed to load logs:\n{e}")
+
+# === Top Frame for Buttons ===
+top_frame = tk.Frame(root, bg="#222", pady=10)
+top_frame.pack(fill=tk.X)
+
+
+# Button to load logs from CSV
+load_btn = tk.Button(top_frame, text="Load Logs", bg="#333", fg="white", )
+load_btn.pack(side=tk.RIGHT, padx=8)
+messagebox.showinfo("Clear Logs", "All logs have been cleared.")
+
 # Top frame for filter and export
 top_frame = tk.Frame(root, bg="#1e1e1e")
 top_frame.pack(fill=tk.X, padx=20)
 
-export_btn = tk.Button(top_frame, text="Export Logs", bg="#333", fg="white", command=export_logs)
+export_btn = tk.Button( text="Export Logs", bg="#333", fg="white", command=export_logs)
 export_btn.pack(side=tk.RIGHT, padx=5)
 
 clear_btn = tk.Button(top_frame, text="Clear Logs", bg="#333", fg="white", command=clear_logs)
 clear_btn.pack(side=tk.RIGHT, padx=5)
+
+
+import matplotlib.pyplot as plt
+from collections import Counter
+
+def show_severity_chart():
+    severities = []
+
+    for item in tree.get_children():
+        log_data = tree.item(item)["values"]
+        if len(log_data) == 4:
+            severities.append(log_data[3])  # Index 3 is Severity
+
+    if not severities:
+        messagebox.showinfo("No Data", "No logs to display in the chart.")
+        return
+
+    count = Counter(severities)
+    labels = list(count.keys())
+    values = list(count.values())
+
+    plt.figure(figsize=(6, 4))
+    bars = plt.bar(labels, values, color=["green", "orange", "red", "purple"])
+    plt.title("Threat Severity Distribution")
+    plt.xlabel("Severity Level")
+    plt.ylabel("Number of Threats")
+
+    for bar in bars:
+        height = bar.get_height()
+        plt.text(bar.get_x() + bar.get_width()/2.0, height, f'{int(height)}', ha='center', va='bottom')
+
+    plt.tight_layout()
+    plt.show()
+# Button to show severity chart
+chart_btn = tk.Button(top_frame, text="Show Severity Chart", bg="#333", fg="white", command=show_severity_chart)
+chart_btn.pack(side=tk.RIGHT, padx=5)
+
+
 
 # Clear logs button
 
