@@ -22,4 +22,21 @@ for number in range(1, 101):
 # Print the number if none of the above conditions are met
 
 
+# print the number of the letters in the word "Biggie" without using the len function
+
+name = "Biggie"
+count = 0
+for letter in name:
+    count += 1
+print("The number of letters in the word 'Biggie' is:", count)  
+
+
+
+
+
+
+
+
+
+
 
