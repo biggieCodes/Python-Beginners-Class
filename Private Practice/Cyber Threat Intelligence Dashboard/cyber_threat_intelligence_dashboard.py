@@ -30,6 +30,7 @@ import tkinter as tk
 # Function to fetch threat data
 def fetch_threat_data():
     print("Fetching threat data...")
+fetch_threat_data()
 
 # Create main window
 root = tk.Tk()
@@ -48,7 +49,7 @@ def load_logs_from_file():
         filetypes=[("CSV files", "*.csv")],
         title="Select Threat Log CSV"
     )
-    messagebox.showerror("Load Error", f"Failed to load logs:\n{e}")
+    messagebox.showerror("Load Error", f"Failed to load logs:\n{Exception}")
     load_btn = tk.Button(top_frame, text="Load Logs", bg="#333", fg="white", command=load_logs_from_file)
     load_btn.pack(side=tk.RIGHT, padx=8)
 
@@ -75,20 +76,11 @@ frame.pack(pady=10)
 
 root.mainloop()
 
-export_btn = tk.Button(top_frame, text="Export Logs", bg="#333", fg="white", command=export_logs)
-export_btn.pack(side=tk.RIGHT, padx=10, pady=5)
-
-clear_btn = tk.Button(top_frame, text="Clear Logs", bg="#333", fg="white", command=clear_logs)
-clear_btn.pack(side=tk.RIGHT, padx=10, pady=5)
+def show_severity_chart():
+    print("Showing severity chart...")
 
 chart_btn = tk.Button(top_frame, text="Show Severity Chart", bg="#333", fg="white", command=show_severity_chart)
 chart_btn.pack(side=tk.RIGHT, padx=10, pady=5)
-
-export_btn = tk.Button(top_frame, text="Export Logs", bg="#333", fg="white", command=export_logs)
-export_btn.pack(side=tk.RIGHT, padx=10, pady=5)
-
-clear_btn = tk.Button(top_frame, text="Clear Logs", bg="#333", fg="white", command=clear_logs)
-clear_btn.pack(side=tk.RIGHT, padx=10, pady=5)
 
 chart_btn = tk.Button(top_frame, text="Show Severity Chart", bg="#333", fg="white", command=show_severity_chart)
 chart_btn.pack(side=tk.RIGHT, padx=10, pady=5)
@@ -143,6 +135,7 @@ def clear_logs():
         if not file_path:
             return
 
+    file_path = "path/to/file.csv"  # Replace "path/to/file.csv" with the actual file path
     try:
         with open(file_path, mode="r") as file:
             reader = csv.DictReader(file)

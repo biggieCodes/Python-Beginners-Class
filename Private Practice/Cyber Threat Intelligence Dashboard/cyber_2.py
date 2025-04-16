@@ -10,7 +10,7 @@ import matplotlib.pyplot as plt
 from collections import Counter
 import threading
 import requests  # Added import for fetching real-time threat data
-
+import time
 # Create main window
 root = tk.Tk()
 root.title("Cyber Threat Intelligence Dashboard")
@@ -49,8 +49,8 @@ def fetch_threat_data():
 
         status_label.config(text="✅ Live Threat Data Fetched from OTX")
 
-    except Exception as e:
-        messagebox.showerror("Fetch Error", f"Failed to fetch real-time data:\n{e}")
+    except Exception as E:
+        messagebox.showerror("Fetch Error", f"Failed to fetch real-time data:\n{E}")
 
 # Export Logs function
 def export_logs():

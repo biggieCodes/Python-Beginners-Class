@@ -10,13 +10,13 @@ for number in range(1, 101):
 
     if number % 3 == 0 and number % 5 == 0:  
 # Check if divisible by both 3 and 5
-        print("FizzBuzz")
+        print(number, "FizzBuzz")
     elif number % 3 == 0:  
 # Check if divisible by 3
-        print("Fizz")
+        print(number,"Fizz")
     elif number % 5 == 0:  
 # Check if divisible by 5
-        print("Buzz")
+        print(number, "Buzz")
     else:
         print(number)  
 # Print the number if none of the above conditions are met
