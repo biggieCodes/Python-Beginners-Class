@@ -9,12 +9,11 @@ def my_function():
     print("Bye")
     
     
+    
  
- 
- def my_function():
-     #do this 
-     #then this
-     #and this again
+my_function()
+
+
      
         
     
